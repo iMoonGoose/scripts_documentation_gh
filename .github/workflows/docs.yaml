@@ -10,7 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Make single .md
-        run: python3 ./publish/combine.py
+        run: |
+          pip3 install dataclasses
+          python3 ./publish/combine.py
       - name: Convert to docx
         uses: docker://pandoc/core:2.19.2-ubuntu
         with:
