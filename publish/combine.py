@@ -88,6 +88,7 @@ def fix_image(line, folder, chapter_num, picture_num):
             link = re.search(link_regex, token).group(1)
             link = link[0:2] + folder + '/' + link[2:]
             token = '![' + 'Рисунок ' + str(chapter_num + 1) + '-' + str(picture_num) + ' — ' + caption + '](' + link + ')'
+            picture_num += 1
         out += token
         
     return out
