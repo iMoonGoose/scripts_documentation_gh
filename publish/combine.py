@@ -1,10 +1,11 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 """
 This scripts combines all .md files in the given order
 and changes image captiones and link
 """
 
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 
 import json
 import re
