@@ -12,7 +12,7 @@ jobs:
       - name: Make single .md
         run: python3 ./publish/combine.py
       - name: Convert to docx
-        uses: docker://pandoc/core:2.9.2-ubuntu
+        uses: docker://pandoc/core:2.19.2-ubuntu
         with:
             args: ./publish/combined.md --reference-doc=./publish/reference.docx -o ./publish/workspace_script_api_for_${{ github.event.release.tag_name }}.docx
       - name: Append to release
