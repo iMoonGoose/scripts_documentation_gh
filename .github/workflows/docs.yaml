@@ -14,12 +14,11 @@ jobs:
       - name: Convert to docx
         uses: docker://pandoc/core:latest-ubuntu
         with:
-            args: ./publish/combined.md --reference-doc=./publish/reference.docx -o ./publish/docs.docx
+            args: ./publish/combined.md --reference-doc=./publish/reference.docx -o ./publish/docs_${{ github.ref }}.docx
       - name: Append to release
         uses: xresloader/upload-to-github-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           file: ./publish/docs.docx
-          tags: false
-          draft: true
+          tag_name: ${{ github.ref }}
